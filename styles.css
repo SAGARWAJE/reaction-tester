@@ -11,7 +11,7 @@
 #shape:hover {
   cursor: pointer;
 }
-
+ 
 p {
   text-align: center;
   color: #5e5858;
@@ -136,6 +136,11 @@ body {
 .new-fastest-time {
   opacity: 1;
   transition: opacity 5s ease; /* Transition the opacity over 5 seconds */
+  position:fixed;
+  top:1.5rem;
+  right:1.5rem;
+  font-size:2rem;
+  color:#ffbd2e;
 }
 
 .new-fastest-time.fade-out {

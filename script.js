@@ -2,6 +2,7 @@ var start = new Date().getTime();
 let fastestTime = Infinity;
 let firstClick = true;
 let audio = new Audio("sounds/confetti.mp3");
+const highScore = document.createElement("div");
 
 //generate a random hex color code from the string
 function randColor() {
@@ -11,6 +12,20 @@ function randColor() {
     color += col[Math.floor(Math.random() * 16)];
   }
   return color;
+}
+
+
+
+function displayHighScore(lowesetTime){
+  highScore.classList.add("high-score");
+  highScore.textContent = `Fastest time: ${lowesetTime}s`;
+  highScore.style.position = "fixed";
+  highScore.style.top = "1.5rem";
+  highScore.style.left = "1.5rem";
+  highScore.style.fontSize = "2rem";
+  highScore.style.color = "#27c93f";
+
+  document.body.appendChild(highScore);
 }
 
 function triggerConfetti() {
@@ -75,14 +90,14 @@ function displayNewFastestTime(time) {
   // Create a div element for displaying the text
   const newTextDiv = document.createElement("div");
   newTextDiv.classList.add("new-fastest-time");
-  newTextDiv.textContent = `New fastest: ${time}s`;
-
+  newTextDiv.textContent = `New fastest!!`;
+  displayHighScore(time);
   // Position the div on the top right of the body
-  newTextDiv.style.position = "fixed";
-  newTextDiv.style.top = "1.5rem";
-  newTextDiv.style.right = "1.5rem";
-  newTextDiv.style.fontSize = "2rem";
-  newTextDiv.style.color = "#27c93f";
+  // newTextDiv.style.position = "fixed";
+  // newTextDiv.style.top = "1.5rem";
+  // newTextDiv.style.right = "1.5rem";
+  // newTextDiv.style.fontSize = "2rem";
+  // newTextDiv.style.color = "#27c93f";
 
   // Append the div to the body
   document.body.appendChild(newTextDiv);
@@ -107,6 +122,7 @@ document.getElementById("shape").onclick = function () {
   }
   if (!firstClick) {
     if (time < fastestTime) {
+      highScore.remove();
       fastestTime = time; // Update fastest time
       triggerConfetti();
       audio.play();
