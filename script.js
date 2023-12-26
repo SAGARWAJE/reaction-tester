@@ -14,8 +14,6 @@ function randColor() {
   return color;
 }
 
-
-
 function displayHighScore(lowesetTime){
   highScore.classList.add("high-score");
   highScore.textContent = `Fastest time: ${lowesetTime}s`;
@@ -92,12 +90,6 @@ function displayNewFastestTime(time) {
   newTextDiv.classList.add("new-fastest-time");
   newTextDiv.textContent = `New fastest!!`;
   displayHighScore(time);
-  // Position the div on the top right of the body
-  // newTextDiv.style.position = "fixed";
-  // newTextDiv.style.top = "1.5rem";
-  // newTextDiv.style.right = "1.5rem";
-  // newTextDiv.style.fontSize = "2rem";
-  // newTextDiv.style.color = "#27c93f";
 
   // Append the div to the body
   document.body.appendChild(newTextDiv);
