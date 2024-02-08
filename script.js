@@ -127,3 +127,4 @@ document.getElementById("shape").onclick = function () {
   firstClick = false;
   AppearAgain();
 };
+///added
